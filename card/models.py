@@ -1,5 +1,6 @@
 from django.db import models
 from markdownx.models import MarkdownxField
+from markdownx.utils import markdownify 
 
 class TagModel(models.Model):
     name = models.CharField('タグ名', max_length=255)
@@ -26,6 +27,9 @@ class ArticleModel(models.Model):
         default='#ffffff'
     )
 
+    def convert_markdown_to_html(self):
+        return markdownify(self.main_text)
+    
     class Meta:
         ordering = ('-created_at',)
 
