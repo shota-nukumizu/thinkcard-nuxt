@@ -6,7 +6,6 @@ from .models import *
 
 class ArticleAdmin(MarkdownxModelAdmin):
     list_display = (
-        'username',
         'title',
         'get_tag',
         'slug',

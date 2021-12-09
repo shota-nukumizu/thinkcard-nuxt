@@ -9,7 +9,6 @@ class TagModel(models.Model):
         return self.name
 
 class ArticleModel(models.Model):
-    username = models.CharField('投稿者', max_length=100)
     title = models.CharField('タイトル', max_length=255)
     tag = models.ManyToManyField(TagModel, verbose_name='タグ')
     slug = models.SlugField('スラッグ', unique=True)
